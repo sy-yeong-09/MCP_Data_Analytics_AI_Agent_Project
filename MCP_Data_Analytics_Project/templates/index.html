@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MCP Data Analytics AI Agent</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-icon" aria-hidden="true">✦</div>
+      <div><h1>MCP Analytics</h1><p>AI-powered dataset assistant</p></div>
+      <span class="topbar-tag">Pandas · RAG · MCP</span>
+    </header>
+    <main class="workspace">
+      <aside class="sidebar">
+        <div class="section-heading"><span class="eyebrow">WORKSPACE</span><h2>Your dataset</h2><p>Upload an Excel or CSV file to start exploring.</p></div>
+        <form id="upload">
+          <label class="dropzone" for="file" id="dropzone">
+            <span class="upload-icon" aria-hidden="true">⇧</span>
+            <strong>Choose a dataset</strong>
+            <span>or drag and drop here</span>
+            <small>CSV, XLS, XLSX</small>
+          </label>
+          <input type="file" id="file" accept=".csv,.xls,.xlsx" required>
+          <div id="selected-file" class="selected-file" aria-live="polite">No file selected</div>
+          <button type="submit" id="upload-button" class="primary-button">Upload dataset</button>
+        </form>
+        <div class="dataset-panel"><div class="panel-title"><span class="status-dot" id="dataset-dot"></span><strong>Dataset status</strong></div><div id="info" aria-live="polite">No dataset uploaded yet.</div></div>
+        <div class="sidebar-foot">Your analysis runs through your connected MCP tools.</div>
+      </aside>
+      <section class="chat-panel" aria-label="Dataset chat">
+        <div class="chat-header"><div><span class="eyebrow">AI ASSISTANT</span><h2>Ask your dataset</h2><p>Explore patterns, statistics, and insights.</p></div><span class="chat-pill">● Ready</span></div>
+        <div id="messages" class="messages" aria-live="polite"><div class="welcome" id="welcome"><div class="welcome-icon">✦</div><h3>What would you like to explore?</h3><p>Upload a dataset, then ask questions about its contents.</p><div class="examples"><button type="button" class="example" data-question="How many rows and columns are in my dataset?">Rows and columns</button><button type="button" class="example" data-question="What are the main insights in this dataset?">Main insights</button><button type="button" class="example" data-question="Which columns contain missing values?">Missing values</button></div></div></div>
+        <form id="chat" class="chat-form"><label class="sr-only" for="question">Your question</label><textarea id="question" placeholder="Ask a question about your dataset..." rows="2" required></textarea><div class="composer-bottom"><span>Enter to send · Shift+Enter for new line</span><button type="submit" id="ask-button" class="primary-button">Send <span aria-hidden="true">➤</span></button></div></form>
+      </section>
+    </main>
+  </div>
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
+
